@@ -31,6 +31,7 @@ namespace SouboryBin08
             int vyska = int.Parse(textBox2.Text);
             FileStream fs = new FileStream(@"..\..\VyskyVeTride.dat", FileMode.Open, FileAccess.Write);
             BinaryWriter bw = new BinaryWriter(fs);
+            fs.Seek(0, SeekOrigin.End);
             bw.Write(jmeno);
             bw.Write(vyska);
             fs.Close();
@@ -65,7 +66,7 @@ namespace SouboryBin08
                     nejmensiJmeno = jmeno;
                 }
                 string radek = jmeno + " " + vyska + " cm";
-                listBox1.Items.Add(jmeno);
+                listBox1.Items.Add(radek);
             }
             prumer = (double)sc / pc;
         }
